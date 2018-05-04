@@ -55,6 +55,7 @@
      * Probably pulled links from a financial report or link farm
    * We should random sample from multiple Segments of the Data instead of just the first segment
 
+![data_rows.png](images/data_rows.png)
 --------------------------------------------------------
 # Our Plan: Topic Modeling
   * Using WARC files
@@ -66,7 +67,7 @@
     * Term Frequency (LDA "should" take TF Matrix)
       * However, TF-IDF is often used
   * Apply basic LDA model to TF matrix
-  * Move to AWS
+  * Attempting move to AWS
 
 --------------------------------------------------------
 # Our Reality
@@ -75,6 +76,28 @@
     * Dropping all non-alpha characters using regex
       * Exporting each document to .csv file to read into Spark Dataframe
     * HTML already stripped
+    * Using regex to remove all non alpha characters
+      * preserves some letters with accents
+      * thus latin character languages are included
+  * Run LDA in Spark locally on first segment
+    * 5 topics
+    * 1-grams, TF matrix as input
+    * token length > 3
+    * English, Spanish and French stop words
+  * Attempting Spark.ML LDA on AWS EMR (Elastic Map Reduce)
+--------------------------------------------------------
+# A little about LDA (Latent Dirichlet Allocation)
+  * Model sees words in documents
+  * Documents are represented as a distribution of topics
+  * Topics are considered to be distributions of words
+  * Alpha and Beta priors are taken from Dirichlet distribution
+
+![lda image](images/lda.png)
+--------------------------------------------------------
+# Results
+  * Working local model
+
+
 
 --------------------------------------------------------
 # Future Considerations for More Robust Model
@@ -82,4 +105,4 @@
   * Use CDX Server API (https://github.com/webrecorder/pywb/wiki/CDX-Server-API)
   * Better to split out english language based on metatags in the full WARC files
     * OR, use language detection on documents and separate into separate corpora for analysis
-  * If subsampling, random sample from each
+  * If subsampling, random sample from each Segment of a given Crawl dump

@@ -103,6 +103,8 @@ if __name__ == '__main__':
     df_corpus = pd.read_csv(data, sep='\t', names=['document'])
     df = df_corpus.reindex()
 
+    df
+
     list_of_strings = [str(i) for i in df['document']]
     list_of_strings
 
