@@ -14,7 +14,7 @@
 
 # Naming Conventions of Dumps
   * http://commoncrawl.org/2018/05/april-2018-crawl-archive-now-available/
-  * CC-MAIN-<Year>-<dump#> : these are happening monthly
+  * CC-MAIN-\<Year>-\<dump#> : these are happening monthly
 
 --------------------------------------------------------
 
