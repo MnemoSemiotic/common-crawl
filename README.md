@@ -2,6 +2,8 @@
 
 # Common Crawl
   * non-profit using crawlers to index the web
+  * Massive corpus based on top 40 million sites
+  * WARC (Web Archive files) stored on AWS S3
 
 <br />
 <br />
