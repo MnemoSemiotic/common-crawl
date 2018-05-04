@@ -177,7 +177,7 @@
 <br />
 
 --------------------------------------------------------
-# A little about LDA (Latent Dirichlet Allocation)
+# A little about LDA
   * Model sees words in documents
   * Documents are represented as a distribution of topics
   * Topics are considered to be distributions of words
