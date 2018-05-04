@@ -123,7 +123,7 @@
 
 --------------------------------------------------------
 # Our Plan: Topic Modeling
-  * Using WARC files
+  * Using WARC files (text with HTML tags + metadata)
     * Drop all rows that are not English
       * `<html lang="en">`
     * Preprocess Text
@@ -147,7 +147,7 @@
 
 
 # Our Reality
-  * Using WET files
+  * Using WET files (text data only)
     * Trouble extracting just HTML Document from HTTP response in WARC
     * Keeping all records (~170 MB, ~36,000 records)
     * Dropping all non-alpha characters using regex
