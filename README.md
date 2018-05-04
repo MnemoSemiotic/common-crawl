@@ -31,7 +31,10 @@ Looking at the Common Crawl Web Corpus
   * How Random is Our Sample?
 --------------------------------------------------------
 # How the Crawler Works
-  *
+  * Breadth-first
+   * Within 4 links of homepages of top 40 million domains
+
+![Breadth](images/breadth-first.png)
 --------------------------------------------------------
 # Common Crawl WARC File format
   * WARC Header Info
@@ -39,6 +42,7 @@ Looking at the Common Crawl Web Corpus
   * HTTP Response Info
     * Standard
   * HTML (For Successful Responses)
+
 ![warc format](images/00_warc-format.png)
 --------------------------------------------------------
 
