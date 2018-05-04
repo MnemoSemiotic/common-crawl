@@ -15,7 +15,7 @@
 --------------------------------------------------------
 # 3 File Formats
   * WARC (Web Archive) Full File Format
-  * WAT Files : Metadata
+  * WAT Files : Metadata, headers
   * WET Files: extracted plaintext data
 
   <br />
@@ -144,12 +144,12 @@
 <br />
 
 --------------------------------------------------------
-* Keeping all records BUT removing all non-alpha characters
 
 
 # Our Reality
   * Using WET files
     * Trouble extracting just HTML Document from HTTP response in WARC
+    * Keeping all records (~170 MB, ~36,000 records)
     * Dropping all non-alpha characters using regex
       * Exporting each document to .csv file to read into Spark Dataframe
     * HTML already stripped
