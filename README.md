@@ -13,6 +13,11 @@
 <br />
 
 --------------------------------------------------------
+# What We Did
+  * Spent a long time getting the data in a form we could use
+  * Ran a local Spark ML LDAmodel on stemmed corpus of website texts
+
+--------------------------------------------------------
 # 3 File Formats
   * WARC (Web Archive) Full File Format
   * WAT Files : Metadata, headers
