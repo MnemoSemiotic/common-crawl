@@ -3,18 +3,46 @@
 # Common Crawl
   * non-profit using crawlers to index the web
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 --------------------------------------------------------
 # 3 File Formats
   * WARC (Web Archive) Full File Format
-    *
   * WAT Files : Metadata
   * WET Files: extracted plaintext data
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
 
 --------------------------------------------------------
 
 # Naming Conventions of Dumps
   * http://commoncrawl.org/2018/05/april-2018-crawl-archive-now-available/
-  * CC-MAIN-\<Year>-\<dump#> : these are happening monthly
+  * CC-MAIN-\<Year>-\<dump#> : these are happening monthly since ~2015
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
 
 --------------------------------------------------------
 
@@ -23,11 +51,17 @@
     * Getting the first segment of this data
       * For current purposes, assuming random-enough sample from the head of this data
   * In all languages
-    * Keeping all records BUT removing all non-alpha characters
-      * Export to new corpus csv in order to re-import
-      * Pipeline with tokenizers, stemming
-      * Many documents are just a single link
   * There's lots of porn on the internet
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
 
 --------------------------------------------------------
 # Common Crawl WARC File format
@@ -38,6 +72,17 @@
   * HTML (For Successful Responses)
 
 ![warc format](images/00_warc-format.png)
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
 --------------------------------------------------------
 # How the Crawler Works, ie "How Random is Our Sample?"
   * Breadth-first traversal of multi-child tree
@@ -45,6 +90,16 @@
      * Consider there are ~1.8 billion sites active websites
 
 ![Breadth](images/breadth-first.png)
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 
 --------------------------------------------------------
 # Our Current Corpus
@@ -56,6 +111,16 @@
    * We should random sample from multiple Segments of the Data instead of just the first segment
 
 ![data_rows.png](images/data_rows.png)
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 --------------------------------------------------------
 # Our Plan: Topic Modeling
   * Using WARC files
@@ -69,7 +134,19 @@
   * Apply basic LDA model to TF matrix
   * Attempting move to AWS
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 --------------------------------------------------------
+* Keeping all records BUT removing all non-alpha characters
+
+
 # Our Reality
   * Using WET files
     * Trouble extracting just HTML Document from HTTP response in WARC
@@ -79,12 +156,26 @@
     * Using regex to remove all non alpha characters
       * preserves some letters with accents
       * thus latin character languages are included
+    * Export to csv in order to re-import
+      * Scripts on cc-pyspark repo returned all pages as single doc
+    * Many documents are just a single link's text
   * Run LDA in Spark locally on first segment
     * 5 topics
     * 1-grams, TF matrix as input
     * token length > 3
+    * stemmed using default Spark ML stemmer (Snowball)
     * English, Spanish and French stop words
   * Attempting Spark.ML LDA on AWS EMR (Elastic Map Reduce)
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 --------------------------------------------------------
 # A little about LDA (Latent Dirichlet Allocation)
   * Model sees words in documents
@@ -93,11 +184,43 @@
   * Alpha and Beta priors are taken from Dirichlet distribution
 
 ![lda image](images/lda.png)
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 --------------------------------------------------------
 # Results
   * Working local model
 
 
+
+| topic | Term Indices |Term Weights
+|-----|-----------|-------|
+|0    |[0, 10, 11, 14, 28, 9, 2, 5, 109, 27]    |[0.0058, 0.0051, 0.0046, 0.0045, 0.0040, 0.0039, 0.003, 0.0033, 0.003, 0.0032]|
+|1    |[1, 12, 23, 37, 4, 25, 81, 89, 90, 125]  |[0.0174, 0.0111, 0.0078, 0.0072, 0.0061, 0.0056, 0.0054, 0.0043, 0.0037, 0.0036]  |
+|2    |[15, 13, 19, 32, 61, 82, 93, 96, 79, 117]|[0.01365, 0.0136, 0.0127, 0.0106, 0.0088, 0.0078, 0.0075, 0.0059, 0.0058, 0.0052]     |
+|3    |[2, 0, 6, 5, 163, 46, 192, 75, 3, 73]    |[0.0070, 0.0063, 0.0061, 0.0058, 0.0042, 0.0041, 0.0039, 0.0038, 0.0038, 0.0037]  |
+|4    |[22, 8, 7, 30, 36, 45, 20, 169, 38, 27]  |[0.01023, 0.0099, 0.0098, 0.0069, 0.0068, 0.0064, 0.0060, 0.0055, 0.0052, 0.0050]    |
+
+* Term Indices
+  * Showing top 10-weighted terms for a given topic
+
+# Ran out of time to get the actual words from the topics :/
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 --------------------------------------------------------
 # Future Considerations for More Robust Model
