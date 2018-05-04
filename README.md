@@ -241,7 +241,7 @@
 * Term Indices
   * Showing top 10-weighted terms for a given topic
 
-# Ran out of time to get the actual words from the topics :/
+# Ran out of time to get the salient words from the topics :/
 
 <br />
 <br />
