@@ -15,7 +15,17 @@
 --------------------------------------------------------
 # What We Did
   * Spent a long time getting the data in a form we could use
+    * used cc-pyspark repo, hacked scripts into usability
   * Ran a local Spark ML LDAmodel on stemmed corpus of website texts
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 --------------------------------------------------------
 # 3 File Formats
