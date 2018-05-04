@@ -28,7 +28,16 @@ Looking at the Common Crawl Web Corpus
   * In all languages
     * Intend to remove sites designated non-English
       * In Pipeline with tokenizers, lemmatizers
+  * How Random is Our Sample?
 
+--------------------------------------------------------
+# Common Crawl WARC File format
+  * WARC Header Info
+    * Crawler Data
+  * HTTP Response Info
+    * Standard 
+  * HTML (For Successful Responses)
+![warc format](images/00_warc-format.png)
 --------------------------------------------------------
 
 # Our Plan: Topic Modeling
