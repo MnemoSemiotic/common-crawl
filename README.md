@@ -29,13 +29,15 @@ Looking at the Common Crawl Web Corpus
     * Intend to remove sites designated non-English
       * In Pipeline with tokenizers, lemmatizers
   * How Random is Our Sample?
-
+--------------------------------------------------------
+# How the Crawler Works
+  *
 --------------------------------------------------------
 # Common Crawl WARC File format
   * WARC Header Info
     * Crawler Data
   * HTTP Response Info
-    * Standard 
+    * Standard
   * HTML (For Successful Responses)
 ![warc format](images/00_warc-format.png)
 --------------------------------------------------------
