@@ -228,6 +228,20 @@
 <br />
 
 --------------------------------------------------------
+# Lessons Learned
+  * Avoid warcio
+    * parse CC Segments with regex instead of hacking scripts
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+--------------------------------------------------------
 # Future Considerations for More Robust Model
   * During text pre-processing, drop all documents less than a certain number of words
   * Use CDX Server API (https://github.com/webrecorder/pywb/wiki/CDX-Server-API)
