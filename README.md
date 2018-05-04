@@ -1,14 +1,12 @@
-# common-crawl
-Looking at the Common Crawl Web Corpus
-
 --------------------------------------------------------
 
 # Common Crawl
   * non-profit using crawlers to index the web
 
 --------------------------------------------------------
-
-# WARC (Web Archive) Full File Format
+# 3 File Formats
+  * WARC (Web Archive) Full File Format
+    *
   * WAT Files : Metadata
   * WET Files: extracted plaintext data
 
@@ -27,8 +25,10 @@ Looking at the Common Crawl Web Corpus
   * In all languages
     * Keeping all records BUT removing all non-alpha characters
       * Export to new corpus csv in order to re-import
-      * Pipeline with tokenizers, lemmatizers
+      * Pipeline with tokenizers, stemming
+      * Many documents are just a single link
   * There's lots of porn on the internet
+
 --------------------------------------------------------
 # Common Crawl WARC File format
   * WARC Header Info
@@ -42,8 +42,18 @@ Looking at the Common Crawl Web Corpus
 # How the Crawler Works, ie "How Random is Our Sample?"
   * Breadth-first traversal of multi-child tree
    * Within 4 links of homepages of top 40 million domains
+     * Consider there are ~1.8 billion sites active websites
 
 ![Breadth](images/breadth-first.png)
+
+--------------------------------------------------------
+# Our Current Corpus
+
+![current corpus word map](images/word_map.png)
+ * Thoughts:
+   * Seems that our subsample is not very random
+     * Probably pulled links from a financial report or link farm
+   * We should random sample from multiple Segments of the Data instead of just the first segment
 
 --------------------------------------------------------
 # Our Plan: Topic Modeling
@@ -54,6 +64,7 @@ Looking at the Common Crawl Web Corpus
       * remove HTML
       * Stem/Lemmatize
     * Term Frequency (LDA "should" take TF Matrix)
+      * However, TF-IDF is often used
   * Apply basic LDA model to TF matrix
   * Move to AWS
 
@@ -64,10 +75,11 @@ Looking at the Common Crawl Web Corpus
     * Dropping all non-alpha characters using regex
       * Exporting each document to .csv file to read into Spark Dataframe
     * HTML already stripped
-  *
 
 --------------------------------------------------------
 # Future Considerations for More Robust Model
+  * During text pre-processing, drop all documents less than a certain number of words
   * Use CDX Server API (https://github.com/webrecorder/pywb/wiki/CDX-Server-API)
   * Better to split out english language based on metatags in the full WARC files
-  *
+    * OR, use language detection on documents and separate into separate corpora for analysis
+  * If subsampling, random sample from each
