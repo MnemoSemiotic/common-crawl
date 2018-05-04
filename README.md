@@ -256,6 +256,9 @@
 # Lessons Learned
   * Avoid warcio
     * parse CC Segments with regex instead of hacking scripts
+  * Maybe start on AWS EMR?
+  * Don't assume that documents on CC would be randomized
+    * documents probably depend on the root link
 
 <br />
 <br />
