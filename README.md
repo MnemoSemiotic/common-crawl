@@ -187,7 +187,8 @@
 <br />
 
 ---------------------------------------------------------------
-# Our Model
+# Our Reality...
+## Our Model
   * Ran LDA in Spark locally on first segment of April 2018 crawl
     * 5 topics
     * 1-grams, TF matrix as input
