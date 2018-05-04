@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CRAWL=CC-MAIN-2017-13
+CRAWL=CC-MAIN-2018-17
 
 BASE_URL=https://commoncrawl.s3.amazonaws.com
 
@@ -35,4 +35,3 @@ for data_type in warc wat wet; do
 		>input/all_${data_type}_$CRAWL.txt
 
 done
-
