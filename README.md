@@ -149,7 +149,7 @@
     * Term Frequency (LDA "should" take TF Matrix)
       * However, TF-IDF is often used
   * Apply basic LDA model to TF matrix
-  * Attempting move to AWS
+  * Move to EMR on AWS
 
 <br />
 <br />
