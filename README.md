@@ -23,18 +23,12 @@ Looking at the Common Crawl Web Corpus
 # Data
   * Chose CC-MAIN-2018-17, April 2018
     * Getting the first segment of this data
-      * Rough idea of the crawl method specifics yet (ie random selection of next link in the recursion/document dump?),
-        * letting this stand for now
+      * For current purposes, assuming random-enough sample from the head of this data
   * In all languages
-    * Intend to remove sites designated non-English
-      * In Pipeline with tokenizers, lemmatizers
-  * How Random is Our Sample?
---------------------------------------------------------
-# How the Crawler Works
-  * Breadth-first
-   * Within 4 links of homepages of top 40 million domains
-
-![Breadth](images/breadth-first.png)
+    * Keeping all records BUT removing all non-alpha characters
+      * Export to new corpus csv in order to re-import
+      * Pipeline with tokenizers, lemmatizers
+  * There's lots of porn on the internet
 --------------------------------------------------------
 # Common Crawl WARC File format
   * WARC Header Info
@@ -45,7 +39,13 @@ Looking at the Common Crawl Web Corpus
 
 ![warc format](images/00_warc-format.png)
 --------------------------------------------------------
+# How the Crawler Works, ie "How Random is Our Sample?"
+  * Breadth-first traversal of multi-child tree
+   * Within 4 links of homepages of top 40 million domains
 
+![Breadth](images/breadth-first.png)
+
+--------------------------------------------------------
 # Our Plan: Topic Modeling
   * Using WARC files
     * Drop all rows that are not English
@@ -58,7 +58,15 @@ Looking at the Common Crawl Web Corpus
   * Move to AWS
 
 --------------------------------------------------------
+# Our Reality
+  * Using WET files
+    * Trouble extracting just HTML Document from HTTP response in WARC
+    * Dropping all non-alpha characters using regex
+      * Exporting each document to .csv file to read into Spark Dataframe
+    * HTML already stripped
+  *
 
+--------------------------------------------------------
 # Future Considerations for More Robust Model
   * Use CDX Server API (https://github.com/webrecorder/pywb/wiki/CDX-Server-API)
   * Better to split out english language based on metatags in the full WARC files
