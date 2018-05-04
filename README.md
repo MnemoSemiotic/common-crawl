@@ -23,10 +23,10 @@ Looking at the Common Crawl Web Corpus
 # Data
   * Chose CC-MAIN-2018-17, April 2018
     * Getting the first segment of this data
-      * Don't know the crawl method specifics yet (ie random selection of next link in the recursion/document dump?),
+      * Rough idea of the crawl method specifics yet (ie random selection of next link in the recursion/document dump?),
         * letting this stand for now
   * In all languages
-    * Intend to apply english vocabulary to strip non-English (for this)
+    * Intend to remove sites designated non-English
       * In Pipeline with tokenizers, lemmatizers
 
 --------------------------------------------------------
