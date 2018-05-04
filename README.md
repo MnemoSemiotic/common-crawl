@@ -174,7 +174,19 @@
     * Export to csv in order to re-import
       * Scripts on cc-pyspark repo returned all pages as single doc
     * Many documents are just a single link's text
-  * Run LDA in Spark locally on first segment
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+---------------------------------------------------------------
+# Our Model
+  * Ran LDA in Spark locally on first segment of April 2018 crawl
     * 5 topics
     * 1-grams, TF matrix as input
     * token length > 3
