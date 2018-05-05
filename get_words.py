@@ -42,5 +42,5 @@ class DocWordsJob(CCSparkJob):
         yield uri, word_list
 
 if __name__ == '__main__':
-    job = WordCountJob()
+    job = DocWordsJob()
     job.run()
